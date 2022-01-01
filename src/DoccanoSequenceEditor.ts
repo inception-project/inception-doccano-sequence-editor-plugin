@@ -15,16 +15,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { AnnotationEditor, DiamAjax } from '@inception-project/inception-js-api';
 import Vue from 'vue'
 import DoccanoEditorComponent from './components/DoccanoEditorComponent.vue'
 
 const ANNOTATIONS_SERIALIZER = "Brat";
 
-export class DoccanoSequenceEditor/* implements AnnotationEditor */ {
-  private ajax /* : DiamAjax */;
+export class DoccanoSequenceEditor implements AnnotationEditor {
+  private ajax: DiamAjax;
   private editor: Vue;
 
-  public constructor(element: HTMLElement, ajax /* : DiamAjax */) {
+  public constructor(element: HTMLElement, ajax: DiamAjax) {
     this.ajax = ajax;
 
     this.editor = new Vue({

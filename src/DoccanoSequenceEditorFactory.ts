@@ -15,12 +15,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { AnnotationEditorFactory, AnnotationEditorProperties, DiamClientFactory } from "@inception-project/inception-js-api";
 import { DoccanoSequenceEditor } from "./DoccanoSequenceEditor";
 
 const PROP_EDITOR = "__editor__";
 
-export class DoccanoSequenceEditorFactory /* implements AnnotationEditorFactory */ {
-  async getOrInitialize(element: HTMLElement | string, diam /*: DiamClientFactory */, props /*: AnnotationEditorProperties */): Promise<DoccanoSequenceEditorFactory> {
+export class DoccanoSequenceEditorFactory implements AnnotationEditorFactory {
+  async getOrInitialize(element: HTMLElement | string, diam: DiamClientFactory, props: AnnotationEditorProperties): Promise<DoccanoSequenceEditor> {
     element = this.resolveElement(element);
 
     const ajax = diam.createAjaxClient(props.diamAjaxCallbackUrl);
