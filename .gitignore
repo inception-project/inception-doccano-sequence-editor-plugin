@@ -1,7 +1,10 @@
 .DS_Store
 node_modules
-/dist
-
+/dist/demo.html
+/dist/DoccanoSequenceEditor.common.js
+/dist/DoccanoSequenceEditor.common.js.map
+/dist/DoccanoSequenceEditor.umd.js
+/dist/DoccanoSequenceEditor.umd.js.map
 
 # local env files
 .env.local
