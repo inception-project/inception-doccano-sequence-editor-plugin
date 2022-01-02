@@ -1,6 +1,5 @@
 {
   "name": "Doccano Sequence (external)",
-  "factory": "DoccanoSequenceEditor.default",
-  "annotationFormat": "Brat",
+  "factory": "DoccanoSequenceEditor.factory()",
   "view": "plugin:plugin.html"
 }

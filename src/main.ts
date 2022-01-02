@@ -22,4 +22,6 @@ Vue.config.productionTip = false
 
 const INSTANCE = new DoccanoSequenceEditorFactory();
 
-export default INSTANCE;
+export function factory(): DoccanoSequenceEditorFactory {
+  return INSTANCE;
+}
