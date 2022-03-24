@@ -40,7 +40,7 @@ export class DoccanoSequenceEditor implements AnnotationEditor {
   }
 
   public loadAnnotations(): void {
-    this.ajax.loadAnnotations(ANNOTATIONS_SERIALIZER)
+    this.ajax.loadAnnotations({format: ANNOTATIONS_SERIALIZER})
       .then(a => {
         console.log("Loaded " + a.length + " annotations from server");
         (this.editor.$children[0] as any).data = a; // VERY BAD HACK - need to figure out how to do it
