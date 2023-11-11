@@ -3,7 +3,7 @@
     <v-annotator
       :rtl="rtl"
       :text="data.text"
-      :entities="JSON.stringify(entities)"
+      :entities="entities"
       :entity-labels="entityLabels"
       :relations="relations"
       :relation-labels="relationLabels"

@@ -21,38 +21,21 @@ import { DoccanoSequenceEditor } from "./DoccanoSequenceEditor";
 const PROP_EDITOR = "__editor__";
 
 export class DoccanoSequenceEditorFactory implements AnnotationEditorFactory {
-  async getOrInitialize(element: HTMLElement | string, diam: DiamClientFactory, props: AnnotationEditorProperties): Promise<DoccanoSequenceEditor> {
-    element = this.resolveElement(element);
-
-    const ajax = diam.createAjaxClient(props.diamAjaxCallbackUrl);
-    element[PROP_EDITOR] = new DoccanoSequenceEditor(element, ajax);
-    return element[PROP_EDITOR];
-  }
-
-  destroy(element: HTMLElement | string): void {
-    element = this.resolveElement(element);
-
+  public async getOrInitialize (element: Node, diam: DiamClientFactory, props: AnnotationEditorProperties): Promise<DoccanoSequenceEditor> {
     if (element[PROP_EDITOR] != null) {
-      element[PROP_EDITOR].destroy();
-      console.log('Destroyed editor');
+      return element[PROP_EDITOR]
     }
+
+    const ajax = diam.createAjaxClient(props.diamAjaxCallbackUrl)
+    
+    element[PROP_EDITOR] = new DoccanoSequenceEditor(element as HTMLElement, ajax);
+    return element[PROP_EDITOR]
   }
 
-  private resolveElement(element: HTMLElement | string): HTMLElement {
-    if (!element) {
-      throw "No element given.";
+  public destroy (element: Node): void {
+    if (element[PROP_EDITOR] != null) {
+      element[PROP_EDITOR].destroy()
+      console.log('Destroyed RecogitoJS')
     }
-
-    let actualElement = element;
-
-    if (!(actualElement instanceof HTMLElement)) {
-      actualElement = document.getElementById(actualElement)
-    }
-
-    if (!actualElement) {
-      throw `Could not find an element with the id ${element}`;
-    }
-
-    return actualElement;
   }
 }

@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { AnnotationEditor, DiamAjax } from '@inception-project/inception-js-api';
+import { AnnotationEditor, DiamAjax, Offsets } from '@inception-project/inception-js-api';
 import Vue from 'vue'
 import DoccanoEditorComponent from './components/DoccanoEditorComponent.vue'
 
@@ -37,6 +37,10 @@ export class DoccanoSequenceEditor implements AnnotationEditor {
         return createElement(DoccanoEditorComponent, context);
       },
     });
+  }
+
+  scrollTo(args: { offset: number; position?: string; pingRanges?: Offsets[]; }): void {
+    console.info("Scroll-to not implemented")
   }
 
   public loadAnnotations(): void {

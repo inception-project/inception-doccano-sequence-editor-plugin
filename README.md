@@ -28,3 +28,8 @@ ExternalEditorLoader - Loading editor plugin: Doccano Sequence (external)
 Also, on the annotation page, you should be able to switch to that editor.
 
 If a document was imported as a HTML file, the editor should display the HTML layout of the file.
+
+### Requirements
+
+- This repository requires NodeJS 16 to build.
+- INCEpTION 29.8 or higher
